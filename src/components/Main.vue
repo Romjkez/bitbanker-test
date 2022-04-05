@@ -31,18 +31,13 @@
                         raised
                         @click="isOverlayVisible = false"
                     >
-                      <v-icon>mdi-close</v-icon>
+                      <v-icon size="31">mdi-close</v-icon>
                     </v-btn>
                   </v-col>
                 </v-row>
                 <Deposit v-if="activeTab===0"/>
-                <div v-if="activeTab===1">
-                  2
-                </div>
-                <div v-if="activeTab===2">
-                  3
-                </div>
-
+                <Withdraw v-if="activeTab===1"/>
+                <Rebalance v-if="activeTab===2"/>
               </v-container>
 
             </v-card>
@@ -66,11 +61,13 @@
 
 <script>
 import Deposit from "@/components/Deposit";
+import Rebalance from "@/components/Rebalance";
+import Withdraw from "@/components/Withdraw";
 
 export default {
 
   name: 'Main',
-  components: {Deposit},
+  components: {Deposit, Withdraw, Rebalance},
   data: () => ({
     isOverlayVisible: true,
     activeTab: 0,
